@@ -49,9 +49,11 @@
                 Ï</table>
                 <div>
                     <button>送信</button>
-                    <button>修正</button>
                 </div>
             </form>
+            <div>
+                <button type="button" href="/">修正</button>
+            </div>
         </div>
     </div>
 </div>
