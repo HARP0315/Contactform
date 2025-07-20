@@ -16,7 +16,7 @@
     <header>
         <div>
             <div>
-                <a href="">FashionablyLate</a>
+                <a href="/">FashionablyLate</a>
                 <nav>
                     <ul>
                         <li>

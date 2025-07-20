@@ -126,7 +126,10 @@
                 </p>
                 <div>
                     <select name="category_id">
-                        <option value="">選択してください</option>
+                        <option selected>選択してください</option>
+                        @foreach ($categories as $category)
+                        <option value="{{$category['id']}}">{{$category['content']}}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
