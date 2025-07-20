@@ -32,7 +32,7 @@ class ContactRequest extends FormRequest
             'tel2' => 'required|digits_between:1,5',
             'tel3' => 'required|digits_between:1,5',
             'address' => 'required|string|max:50',
-            'category_id' => 'required|string|',
+            'category_id' => 'required|string|exists:categories,id',
             'detail' => 'required|string|max:120'
         ];
     }
@@ -60,6 +60,7 @@ class ContactRequest extends FormRequest
             'address.string' => '住所は文字列で入力してください',
             'address.max' => '住所は50文字以下で入力してください',
             'category_id.required' => 'お問い合わせの種類を選択してください',
+            'category_id.exists' => 'お問い合わせの種類を選択してください',
             'detail.required' => 'お問い合わせ内容を入力してください',
             'detail.string' => 'お問い合わせは文字列で入力してください',
             'detail.max' => 'お問い合わせ内容は120文字以内で入力してください'

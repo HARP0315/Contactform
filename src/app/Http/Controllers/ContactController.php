@@ -9,9 +9,16 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
         $categories = Category::all();
+
+        // もしリクエストがPOST（つまりConfirm画面からの修正ボタン）の場合
+        if ($request->isMethod('post')) {
+        // リクエストデータ全てをセッションにフラッシュする (old()関数で使えるようにする)
+            $request->flash();
+
+        }
         return view('index', compact('categories'));
     }
 
@@ -44,5 +51,29 @@ class ContactController extends Controller
         return view('confirm', compact('contact'));
 
     }
+
+    public function store(Request $request){
+
+        $contact = $request->only(
+            'category_id',
+            'last_name',
+            'first_name',
+            'gender',
+            'email',
+            'tel1',
+            'tel2',
+            'tel3',
+            'address',
+            'building',
+            'detail',
+            'content');
+
+        $contact['tel'] = $contact['tel1'] . $contact['tel2'] . $contact['tel3'];
+        unset($contact['tel1'], $contact['tel2'], $contact['tel3']);
+
+        Contact::create($contact);
+
+        return view('thanks');
+}
 
 }

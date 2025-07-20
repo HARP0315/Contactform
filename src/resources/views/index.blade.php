@@ -44,9 +44,9 @@
                     <span>※</span>
                 </p>
                 <div>
-                    <input class="" type="radio" name="gender" value="男性" checked>男性
-                    <input class="" type="radio" name="gender" value="女性" >女性
-                    <input class="" type="radio" name="gender" value="その他" >その他
+                    <input class="" type="radio" name="gender" value="1" checked>男性
+                    <input class="" type="radio" name="gender" value="2" >女性
+                    <input class="" type="radio" name="gender" value="3" >その他
                 </div>
             </div>
             @error('gender')
@@ -68,13 +68,6 @@
                     <span>※</span>
                 </p>
                 <div>
-                    {{-- <input type="text" id="tel-part1" class="tel-input"
-                    placeholder="080" value="{{ old('tel-part1') }}"> -
-                    <input type="text" id="tel-part2" class="tel-input"
-                    placeholder="1234" value="{{ old('tel-part2') }}"> -
-                    <input type="text" id="tel-part3" class="tel-input"
-                    placeholder="5678" value="{{ old('tel-part3') }}">
-                    <input type="hidden" name="tel" id="full-tel"> --}}
                     <input type="text" name="tel1" class=""
                     placeholder="080" value="{{ old('tel1') }}"> -
                     <input type="text" name="tel2" class=""
@@ -126,9 +119,14 @@
                 </p>
                 <div>
                     <select name="category_id">
-                        <option selected>選択してください</option>
+                        <option value=""
+                        @if(old('category_id') === null || old('category_id') === '') selected
+                        @endif>選択してください</option>
+
                         @foreach ($categories as $category)
-                        <option value="{{$category['id']}}">{{$category['content']}}</option>
+                        <option value="{{$category['id']}}"
+                        @if(old('category_id') == $category['id']) selected
+                        @endif>{{$category['content']}}</option>
                         @endforeach
                     </select>
                 </div>

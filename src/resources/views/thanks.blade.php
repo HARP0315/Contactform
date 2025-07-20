@@ -13,7 +13,7 @@
         <div>
             <div>お問合せありがとうございました</div>
             <div>
-                <a class="" href="">HOME</a>
+                <a class="" href="/">HOME</a>
             </div>
         </div>
     </main>
