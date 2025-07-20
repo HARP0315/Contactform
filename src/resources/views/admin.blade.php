@@ -5,10 +5,14 @@
 @endsection
 
 @section('link')
-<a href="">logout</a>
+<form class="form" action="/logout" method="post">
+    @csrf
+    <button class="header-nav__button">ログアウト</button>
+</form>
 @endsection
 
 @section('content')
+
 <div>
     <div>
         <div>
@@ -17,12 +21,27 @@
         <form class="" action="" method="">
             @csrf
             <div>
-                <input type="text">
-                <select class="" name=""></select>
-                    <option value=""></option>
-                <select class="" name=""></select>
-                    <option value=""></option>
-                    <input type="date" name="" />
+                <input type="text" name="" placeholder="名前やネームアドレスを入力してください">
+                <select class="" name="gender">
+                    <option value="1">男性</option>
+                    <option value="2">女性</option>
+                    <option value="3">その他</option>
+                </select>
+                <select class="" name="category_id">
+                    <option value=""
+                        @if(old('category_id')
+                        === null || old('category_id') === '') selected
+                        @endif>お問い合わせの種類
+                    </option>
+
+                        @foreach ($categories as $category)
+                        <option value="{{$category['id']}}"
+                        @if(old('category_id') == $category['id']) selected
+                        @endif>{{$category['content']}}
+                    </option>
+                        @endforeach
+                </select>
+                    <input type="date" name="created_at" placehoder="年/月/日"/>
             </div>
             <div>
                 <div>
@@ -47,25 +66,29 @@
                     <th>メールアドレス</th>
                     <th>お問合せの種類</th>
                 </tr>
+                @foreach ($contacts as $contact)
                 <tr>
-                    <td>こっこ こっこ</td>
-                    <td>中性</td>
-                    <td>ひみちゅ</td>
-                    <td>お腹すいた</td>
+                    <td>{{$contact['last_name']}}&emsp;{{$contact['first_name']}}</td>
+                    <td>{{$genderMap[$contact->gender]}}</td>
+                    <td>{{$contact['email']}}</td>
+                    <td>{{$contact['detail']}}</td>
                     <td>
                         <div>
+                            <form action="">
                             <button type="button" class="js-modal-open"
-                            data-id="{{ $inquiry->id }}"
-                            data-name="{{ $inquiry->name }}"
-                            data-gender="{{ $inquiry->gender }}"
-                            data-email="{{ $inquiry->email }}"
-                            data-tel="{{ $inquiry->tel }}"
-                            data-address="{{ $inquiry->address }}"
-                            data-content="{{ $inquiry->content }}"
-                            data-detail="{{ $inquiry->detail }}">>詳細</button>
+                            data-id=" inquiry->id }}"
+                            data-name="inquiry->name }}"
+                            data-gender="inquiry->gender }}"
+                            data-email="inquiry->email }}"
+                            data-tel="inquiry->tel }}"
+                            data-address="inquiry->address }}"
+                            data-content="inquiry->content }}"
+                            data-detail="inquiry->detail }}">>詳細</button>
+                            </form>
                         </div>
                     </td>
                 </tr>
+                @endforeach
             </table>
         </div>
     </div>

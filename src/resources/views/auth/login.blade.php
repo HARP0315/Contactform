@@ -5,7 +5,7 @@
 @endsection
 
 @section('link')
-<a href="">register</a>
+<a href="/register">register</a>
 @endsection
 
 @section('content')
@@ -14,16 +14,16 @@
         <div>
             <h2>Login</h2>
         </div>
-        <form class="" action="" method="">
+        <form class="" action="/login" method="post">
             @csrf
             <div>
                 <div>
-                    <label for="⚫︎">メールアドレス</label>
-                    <input type="email" name="" id="⚫︎">
+                    <p>メールアドレス</p>
+                    <input type="email" name="email" value="{{old('email')}}">
                 </div>
                 <div>
-                    <label for="⚫︎">パスワード</label>
-                    <input type="password" name="" id="⚫︎">
+                    <p>パスワード</p>
+                    <input type="password" name="password" id="password">
                 </div>
             </div>
             <div>

@@ -22,7 +22,7 @@
                     <input type="hidden" name="first_name" value="{{ $contact['first_name'] }}">
                     <tr>
                         <th>性別</th>
-                        <td>{{$contact['gender']}}</td>
+                        <td>{{$contact['gender_text']}}</td>
                     </tr>
                     <input type="hidden" name="gender" value="{{ $contact['gender'] }}">
                     <tr>

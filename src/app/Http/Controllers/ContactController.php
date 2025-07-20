@@ -9,6 +9,12 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
+    protected $genderMap = [
+        '1' => '男性',
+        '2' => '女性',
+        '3' => 'その他',
+    ];
+
     public function index(Request $request){
 
         $categories = Category::all();
@@ -43,6 +49,8 @@ class ContactController extends Controller
 
         // 取得したカテゴリ名（content）を $contactData に追加する
         $contactData['category_content'] = $category->content;
+
+        $contactData['gender_text'] = $this->genderMap[$contactData['gender']];
 
         // 最終的にビューに渡す変数名に戻す（$contact）
         $contact = $contactData;
