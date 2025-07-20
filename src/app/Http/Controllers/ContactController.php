@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
+use App\Models\Category;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -20,4 +22,5 @@ class ContactController extends Controller
         return view('/confirm',compact('contact'));
 
     }
+
 }
