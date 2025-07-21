@@ -1,0 +1,62 @@
+/* public/css/style.css */
+
+/* --- モーダルの初期状態（非表示） --- */
+/* モーダルの背景とモーダル本体の両方に適用 */
+.modal-overlay,
+.modal-main {
+    display: none; /* ← これで初期状態では画面に表示されなくなります */
+    position: fixed; /* 画面の固定位置に表示 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999; /* 他の要素より手前に表示するための重なり順 */
+    overflow: auto; /* モーダル内容が長い場合にスクロール可能にする */
+}
+
+/* --- モーダルの背景のスタイル --- */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7); /* 半透明の黒 */
+}
+
+/* --- モーダル本体のスタイル --- */
+.modal-main {
+    display: flex; /* Flexboxを使って中央寄せするため */
+    justify-content: center; /* 水平方向の中央寄せ */
+    align-items: center; /* 垂直方向の中央寄せ */
+}
+
+/* --- モーダルの中身のスタイル --- */
+.modal-content {
+    background-color: #fff; /* 白い背景 */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 影 */
+    max-width: 500px; /* 最大幅を制限 */
+    width: 90%; /* レスポンシブ対応 */
+    position: relative; /* 閉じるボタンの絶対配置の基準にするため */
+}
+
+/* --- 閉じるボタンのスタイル --- */
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* --- JavaScriptで追加/削除するクラス (モーダルを表示する状態) --- */
+/* js/deletemordal.js (あなたのJSファイル) の openModal 関数で追加されるクラス */
+.modal-overlay.is-active,
+.modal-main.is-active {
+    display: block; /* オーバーレイと本体を表示状態にする */
+}
+
+/* もし modal-main を Flexbox にしたまま表示させたいなら */
+/* .modal-main.is-active {
+    display: flex;
+} */

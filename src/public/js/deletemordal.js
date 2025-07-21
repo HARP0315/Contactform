@@ -1,37 +1,39 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // DOMContentLoaded: HTMLがすべて読み込まれてからJSを実行するための記述
 
     // === 1. 要素の取得 ===
     const modalOverlay = document.querySelector('.modal-overlay');
     const modalMain = document.querySelector('.modal-main');
-    const modalCloseButtons = document.querySelectorAll('.js-modal-close'); // ×ボタンとオーバーレイ
+    const modalCloseButtons = document.querySelectorAll('.js-modal-close');
     const detailButtons = document.querySelectorAll('.js-modal-open'); // 各詳細ボタン
 
     // お問い合わせ内容を表示する要素
-    const modalName = document.getElementById('modal-name');
+    const modalLastName = document.getElementById('modal-last_name');
+    const modalFirstName = document.getElementById('modal-first_name');
     const modalGender = document.getElementById('modal-gender');
     const modalEmail = document.getElementById('modal-email');
     const modalTel = document.getElementById('modal-tel');
     const modalAddress = document.getElementById('modal-address');
-    const modalContent = document.getElementById('modal-content');
+    const modalBuilding = document.getElementById('modal-building');
+    const modalCategoryId = document.getElementById('modal-category_id');
     const modalDetail = document.getElementById('modal-detail');
     const deleteForm = document.getElementById('delete-form');
 
-
     // === 2. モーダル表示関数 ===
-    function openModal(inquiry) {
+    function openModal(contact) {
+
         // モーダルにお問い合わせ内容をセット
-        modalName.textContent = inquiry.name;
-        modalGender.textContent = inquiry.gender;
-        modalEmail.textContent = inquiry.email;
-        modalTel.textContent = inquiry.tel;
-        modalAddress.textContent = inquiry.address;
-        modalContent.textContent = inquiry.content;
-        modalDetail.textContent = inquiry.detail;
+        modalLastName.textContent = contact.last_name;
+        modalFirstName.textContent = contact.first_name;
+        modalGender.textContent = contact.gender;
+        modalEmail.textContent = contact.email;
+        modalTel.textContent = contact.tel;
+        modalAddress.textContent = contact.address;
+        modalBuilding.textContent = contact.building;
+        modalCategoryId.textContent = contact.category_id;
+        modalDetail.textContent = contact.detail;
 
         // 削除フォームのaction属性を更新
-        // /inquiries/123 のようなidに合わせたURLを作ってLaravelが何を削除したらいいかわかるようにする
-        deleteForm.action = `/inquiries/${inquiry.id}`;
+        deleteForm.action = `/admin/${contact.id}`; // ルートに合わせて変更済みと仮定
 
         // モーダルの背景（オーバーレイ）を表示
         modalOverlay.classList.add('is-active');
@@ -53,18 +55,20 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault(); // デフォルトのリンク動作をキャンセル
 
             // ボタンのdata属性からお問い合わせデータを取得
-            // HTML側で data-id, data-name, data-email,など設定する
-            const inquiry = {
+            // HTML側で data-id, data-last_name, data-first_name, など設定する
+            const contact = {
                 id: button.dataset.id,
-                name: button.dataset.name,
+                last_name: button.dataset.lastName,   // data-last_name は dataset.lastName に変換
+                first_name: button.dataset.firstName, // data-first_name は dataset.firstName に変換
                 gender: button.dataset.gender,
                 email: button.dataset.email,
                 tel: button.dataset.tel,
                 address: button.dataset.address,
-                content: button.dataset.content,
+                building: button.dataset.building,
+                category_id: button.dataset.categoryId, // data-category_id は dataset.categoryId に変換
                 detail: button.dataset.detail
             };
-            openModal(inquiry);
+            openModal(contact);
         });
     });
 

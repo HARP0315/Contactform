@@ -31,7 +31,7 @@
                 <div>
                     @error('email') {{-- email のエラーメッセージ表示 --}}
                         {{ $message }}
-                @enderror
+                    @enderror
                 </div>
             </div>
             <div>
@@ -40,15 +40,6 @@
                 <div>
                     @error('password') {{-- password のエラーメッセージ表示 --}}
                         {{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
-            <div>
-                <label for="password_confirmation">パスワード（確認）</label>
-                <input type="password" name="password_confirmation" id="password_confirmation">
-                <div>
-                    @error('password_confirmation') {{-- password_confirmation のエラーメッセージ表示 --}}
-                    {{ $message }}</div>
                     @enderror
                 </div>
             </div>

@@ -22,8 +22,18 @@
                     <input type="email" name="email" value="{{old('email')}}">
                 </div>
                 <div>
+                    @error('email') {{-- email のエラーメッセージ表示 --}}
+                        {{ $message }}
+                    @enderror
+                </div>
+                <div>
                     <p>パスワード</p>
                     <input type="password" name="password" id="password">
+                </div>
+                <div>
+                    @error('password') {{-- email のエラーメッセージ表示 --}}
+                        {{ $message }}
+                    @enderror
                 </div>
             </div>
             <div>

@@ -21,3 +21,10 @@ Route::post('/', [ContactController::class, 'index']);
 Route::post('/confirm',[ContactController::class,'confirm']);
 Route::post('/thanks',[ContactController::class, 'store']);
 Route::get('/admin', [UserController::class, 'index']);
+Route::get('/admin/search', [UserController::class, 'search']);
+Route::delete('/admin/{contact}', [UserController::class, 'destroy'])->name('contact.destroy');
+
+// CSVエクスポート用ルート
+// GETメソッドで検索条件を受け取り、CSVをダウンロードさせる
+Route::get('/admin/export-csv', [UserController::class, 'exportCsv'])
+    ->name('admin.export-csv'); // ルートに名前を付けておく

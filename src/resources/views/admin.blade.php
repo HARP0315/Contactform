@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+{{-- CSSリンク上手くできてないから一旦ここに書き --}}
+<style>
+    svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+        width: 30px;
+        height: 30px;
+    }
+</style>
+
 @section('css')
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 @endsection
@@ -18,21 +27,19 @@
         <div>
             <h2>Admin</h2>
         </div>
-        <form class="" action="" method="">
+        <form class="" action="/admin/search" method="get">
             @csrf
             <div>
-                <input type="text" name="" placeholder="名前やネームアドレスを入力してください">
+                <input type="text" name="keyword" placeholder="名前やネームアドレスを入力してください" >
                 <select class="" name="gender">
+                    <option value="" selected>性別</option>
+                    <option value="">すべて</option>
                     <option value="1">男性</option>
                     <option value="2">女性</option>
                     <option value="3">その他</option>
                 </select>
                 <select class="" name="category_id">
-                    <option value=""
-                        @if(old('category_id')
-                        === null || old('category_id') === '') selected
-                        @endif>お問い合わせの種類
-                    </option>
+                    <option value="" selected>お問い合わせの種類</option>
 
                         @foreach ($categories as $category)
                         <option value="{{$category['id']}}"
@@ -51,12 +58,20 @@
             </div>
         </form>
         <div>
-            <form class="" action="" method="">
-                @csrf
-                <input type="hidden">
-                <button>エクスポート</button>
+            {{-- CSVエクスポートフォーム --}}
+            {{-- このフォームはGETメソッドで、現在の検索条件をhiddenフィールドで送ります --}}
+            <form action="{{ route('admin.export-csv') }}" method="GET">
+            @csrf
+                {{-- 現在の検索条件をhiddenフィールドとして渡す --}}
+                {{-- UserControllerのindexメソッドから取得した request() ヘルパーで値を取得 --}}
+                <input type="hidden" name="keyword" value="{{ request('keyword') }}">
+                <input type="hidden" name="gender" value="{{ request('gender') }}">
+                <input type="hidden" name="category_id" value="{{ request('category_id') }}">
+                <input type="hidden" name="created_at" value="{{ request('created_at') }}">
+                {{-- 他の検索条件もあれば同様に追加 --}}
+                <button type="submit">エクスポート</button>
             </form>
-            <p>仮）ページネーション</p>
+            {{ $contacts->links() }}
         </div>
         <div>
             <table>
@@ -71,20 +86,20 @@
                     <td>{{$contact['last_name']}}&emsp;{{$contact['first_name']}}</td>
                     <td>{{$genderMap[$contact->gender]}}</td>
                     <td>{{$contact['email']}}</td>
-                    <td>{{$contact['detail']}}</td>
+                    <td>{{$contact['category']['content']}}</td>
                     <td>
                         <div>
-                            <form action="">
                             <button type="button" class="js-modal-open"
-                            data-id=" inquiry->id }}"
-                            data-name="inquiry->name }}"
-                            data-gender="inquiry->gender }}"
-                            data-email="inquiry->email }}"
-                            data-tel="inquiry->tel }}"
-                            data-address="inquiry->address }}"
-                            data-content="inquiry->content }}"
-                            data-detail="inquiry->detail }}">>詳細</button>
-                            </form>
+                            data-id="{{ $contact->id }}"
+                            data-last_name="{{ $contact->last_name }}"
+                            data-first_name="{{ $contact->first_name }}"
+                            data-gender="{{ $contact->gender }}"
+                            data-email="{{ $contact->email }}"
+                            data-tel="{{ $contact->tel }}"
+                            data-address="{{ $contact->address }}"
+                            data-building="{{ $contact->building }}"
+                            data-category_id="{{ $contact->category_id }}"
+                            data-detail="{{ $contact->detail }}">>詳細</button>
                         </div>
                     </td>
                 </tr>
@@ -95,53 +110,57 @@
 </div>
 
 {{-- モーダル画面 --}}
-<div class="modal-overlay js-modal-close"></div>
+<div class="modal-overlay js-modal-close">
 
-<div class="modal-main">
-    <div class="modal-content">
-        <div>
-            <button class="modal-close-button js-modal-close">×</button>
-        </div>
-        <form class="" action="" method="">
-            @csrf
-            <table>
-                <tr>
-                    <th>お名前</th>
-                    <td id="">こっこ</td>
-                </tr>
-                <tr>
-                    <th>性別</th>
-                    <td>中性</td>
-                </tr>
-                <tr>
-                    <th>メールアドレス</th>
-                    <td>あばばば</td>
-                </tr>
-                <tr>
-                    <th>電話番号</th>
-                    <td>0000000000</td>
-                </tr>
-                <tr>
-                    <th>住所</th>
-                    <td>あばばば</td>
-                </tr>
-                <tr>
-                    <th>建物名</th>
-                    <td>あばばば</td>
-                </tr>
-                <tr>
-                    <th>お問合せの種類</th>
-                    <td>あばばば</td>
-                </tr>
-                <tr>
-                    <th>お問合せ内容</th>
-                    <td>あばばば</td>
-                </tr>
-            </table>
+    <div class="modal-main">
+        <div class="modal-content">
             <div>
-                <button>削除</button>
+                <button class="modal-close-button js-modal-close">×</button>
             </div>
-        </form>
+            <form class="" action="#" method="post" id="delete-form">
+                @csrf
+                @method('DELETE')
+                <table>
+                    <tr>
+                        <th>お名前</th>
+                        <td>
+                            <span id="modal-last_name"></span>&emsp;<span id="modal-first_name"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>性別</th>
+                        <td id="modal-gender"></td>
+                    </tr>
+                    <tr>
+                        <th>メールアドレス</th>
+                        <td id="modal-email"></td>
+                    </tr>
+                    <tr>
+                        <th>電話番号</th>
+                        <td id="modal-tel"></td>
+                    </tr>
+                    <tr>
+                        <th>住所</th>
+                        <td id="modal-address"></td>
+                    </tr>
+                    <tr>
+                        <th>建物名</th>
+                        <td id="modal-building"></td>
+                    </tr>
+                    <tr>
+                        <th>お問合せの種類</th>
+                        <td id="modal-category_id"></td>
+                    </tr>
+                    <tr>
+                        <th>お問合せ内容</th>
+                        <td id="modal-detail"></td>
+                    </tr>
+                </table>
+                <div>
+                    <button>削除</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 <script src="{{ asset('js/deletemordal.js') }}"></script>
