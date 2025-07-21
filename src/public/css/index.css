@@ -1,0 +1,220 @@
+/* ------------------------------------ */
+/* お問い合わせページ (contact-page Block) */
+/* ------------------------------------ */
+.contact-page {
+    /* ページ全体のパディングや背景色など */
+    padding: 40px 0; /* 上下のパディング */
+    background-color: #f5f5f5; /* ページ全体の背景色（common.cssと合わせる） */
+}
+
+.contact-page__inner {
+    /* ページコンテンツの最大幅と中央寄せ */
+    max-width: 800px; /* フォームの最大幅を調整 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 0 20px; /* 左右の余白 */
+}
+
+.contact-page__title {
+    /* ページのタイトル (Contact) のスタイル */
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center; /* 中央寄せ */
+    margin-bottom: 40px; /* 下の余白 */
+    color: #333;
+}
+
+/* ------------------------------------ */
+/* お問い合わせフォーム (contact-form Block) */
+/* ------------------------------------ */
+.contact-form {
+    background-color: #fff; /* フォームの背景色 */
+    padding: 40px; /* フォームの内側のパディング */
+    border-radius: 8px; /* 角丸 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 軽い影 */
+    max-width: 700px; /* フォーム自体の最大幅 */
+    margin: 0 auto; /* 中央寄せ */
+}
+
+.contact-form__content {
+    /* フォーム入力項目全体を囲むコンテナ */
+}
+
+.contact-form__group {
+    /* 各入力グループ（ラベルと入力欄のセット）のスタイル */
+    display: flex; /* ラベルと入力欄を横並びに */
+    align-items: center; /* 垂直方向の中央揃え */
+    margin-bottom: 25px; /* グループ間の余白 */
+}
+
+.contact-form__label-text {
+    /* ラベルテキストのスタイル */
+    font-size: 16px;
+    font-weight: 400;
+    width: 180px; /* ラベルの幅を固定 */
+    flex-shrink: 0; /* ラベルが縮まないように */
+    color: #555;
+    text-align: left; /* 左寄せ */
+}
+
+.contact-form__label-required {
+    /* 必須マーク（※）のスタイル */
+    color: #FF0000; /* 赤色 */
+    font-size: 14px;
+    margin-left: 5px; /* ※とテキストの間の余白 */
+}
+
+.contact-form__input-field {
+    /* 汎用的な入力フィールドのスタイル (input[type="text"], input[type="email"]など) */
+    flex-grow: 1; /* 残りのスペースを埋める */
+    padding: 12px 15px; /* 内側のパディング */
+    border: 1px solid #ddd; /* 枠線 */
+    border-radius: 5px; /* 角丸 */
+    background-color: #f8f8f8; /* 薄いグレーの背景 */
+    font-size: 16px;
+    color: #333;
+    outline: none; /* フォーカス時のアウトラインを消す */
+    transition: border-color 0.3s ease; /* フォーカス時のアニメーション */
+}
+
+.contact-form__input-field:focus {
+    border-color: #4CAF50; /* フォーカス時の枠線の色 */
+}
+
+.contact-form__input-field--half {
+    /* 名前入力欄（半分幅）のスタイル */
+    width: calc(50% - 10px); /* 50%幅から余白を引く */
+    margin-right: 20px; /* 姓と名の間の余白 */
+}
+
+.contact-form__input-field--half:last-child {
+    margin-right: 0; /* 最後の要素の余白を消す */
+}
+
+.contact-form__input-name {
+    /* 姓と名の入力欄を囲むコンテナのスタイル */
+    display: flex; /* 姓と名を横並びに */
+    flex-grow: 1; /* 残りのスペースを埋める */
+}
+
+.contact-form__error-area {
+    /* エラーメッセージ表示エリアのスタイル */
+    margin-left: 180px; /* ラベルの幅に合わせて左に余白 */
+    margin-top: -15px; /* 上の要素との間隔を詰める */
+    margin-bottom: 15px; /* 下の要素との間隔 */
+    min-height: 20px; /* エラーがない場合でも高さを確保してレイアウト崩れを防ぐ */
+}
+
+.contact-form__error-list {
+    /* エラーリストのスタイル */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-form__error-item {
+    /* 各エラー項目のスタイル */
+    color: #FF0000; /* 赤色 */
+    font-size: 14px;
+}
+
+.contact-form__input-radio {
+    /* ラジオボタンのコンテナのスタイル */
+    display: flex; /* ラジオボタンを横並びに */
+    flex-grow: 1;
+    align-items: center;
+}
+
+.contact-form__radio-label {
+    /* 各ラジオボタンのラベルのスタイル */
+    margin-right: 20px; /* ラジオボタン間の余白 */
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    display: flex; /* inputとテキストを縦方向中央揃えに */
+    align-items: center;
+}
+
+.contact-form__radio-input {
+    /* ラジオボタン自体のスタイル */
+    margin-right: 8px; /* ラジオボタンとテキストの間の余白 */
+    transform: scale(1.2); /* ラジオボタンを少し大きく表示 */
+}
+
+.contact-form__input-tel {
+    /* 電話番号入力欄のコンテナのスタイル */
+    display: flex; /* 各入力欄を横並びに */
+    flex-grow: 1;
+    align-items: center;
+}
+
+.contact-form__input-field--tel {
+    /* 電話番号入力欄の個別のスタイル */
+    width: 80px; /* 電話番号の各パートの幅を固定 */
+    text-align: center; /* 中央寄せ */
+    margin: 0 5px; /* ハイフンの両側の余白 */
+}
+
+.contact-form__input-tel span {
+    /* ハイフンのスタイル（HTMLにハイフンが直接書かれている場合） */
+    color: #555;
+    font-size: 16px;
+}
+
+.contact-form__input-select {
+    /* セレクトボックスのコンテナのスタイル */
+    flex-grow: 1;
+}
+
+.contact-form__select {
+    /* セレクトボックス自体のスタイル */
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    appearance: none; /* デフォルトの矢印を消す */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23888%22%20d%3D%22M208.5%2096.5L128%20177L47.5%2096.5z%22%2F%3E%3C%2Fsvg%3E'); /* カスタムの矢印 */
+    background-repeat: no-repeat;
+    background-position: right 15px center; /* 矢印の位置 */
+    background-size: 12px; /* 矢印のサイズ */
+}
+
+.contact-form__textarea {
+    /* テキストエリアのスタイル */
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    resize: vertical; /* 垂直方向のみリサイズ可能 */
+    min-height: 120px; /* 最小の高さ */
+}
+
+.contact-form__actions {
+    /* フォームのボタン群のスタイル */
+    text-align: center; /* ボタンを中央寄せ */
+    margin-top: 40px; /* 上の要素との余白 */
+}
+
+.contact-form__button {
+    /* フォームの送信ボタンのスタイル */
+    background-color: #333; /* ボタンの背景色 */
+    color: #fff; /* 文字色 */
+    padding: 15px 40px; /* 内側のパディング */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+}
+
+.contact-form__button:hover {
+    background-color: #555; /* ホバー時の色 */
+}

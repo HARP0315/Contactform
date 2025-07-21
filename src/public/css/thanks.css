@@ -1,0 +1,89 @@
+/* ------------------------------------ */
+/* お問い合わせ完了ページ (thanks-page Block) */
+/* ------------------------------------ */
+.thanks-page {
+    /* ページ全体のパディングや背景色など */
+    padding: 80px 0; /* 上下のパディングを大きめに */
+    background-color: #f5f5f5; /* ページ全体の背景色（common.cssと合わせる） */
+    text-align: center; /* コンテンツを中央寄せ */
+    position: relative; /* 擬似要素の基準位置 */
+    overflow: hidden; /* 擬似要素がはみ出さないように */
+    min-height: calc(100vh - 100px); /* 画面の高さいっぱいに広がるように調整（ヘッダーやフッターの高さによる） */
+    display: flex; /* Flexboxでコンテンツを中央に */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 縦並びにする */
+}
+
+.thanks-page__inner {
+    /* ページコンテンツの内側コンテナ */
+    max-width: 600px; /* コンテンツの最大幅を調整 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 40px; /* 内側のパディング */
+    background-color: #fff; /* メッセージ部分の背景色 */
+    border-radius: 8px; /* 角丸 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 軽い影 */
+    z-index: 1; /* 擬似要素より手前に表示 */
+    position: relative; /* 擬似要素との重なり順を制御 */
+}
+
+.thanks-page__message {
+    /* 完了メッセージのスタイル */
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px; /* 下の余白 */
+}
+
+.thanks-page__actions {
+    /* アクション（ボタンやリンク）のコンテナ */
+    margin-top: 20px; /* メッセージとの間の余白 */
+}
+
+.thanks-page__home-link {
+    /* トップへ戻るリンクのスタイル */
+    display: inline-block; /* ボタンのように見せる */
+    background-color: #666; /* ボタンの背景色 */
+    color: #fff; /* 文字色 */
+    padding: 12px 30px; /* 内側のパディング */
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.thanks-page__home-link:hover {
+    background-color: #888; /* ホバー時の色 */
+}
+
+/* ------------------------------------ */
+/* 背景の「Thank you」 (擬似要素) */
+/* ------------------------------------ */
+.thanks-page::before { /* thanks-page の擬似要素として追加 */
+    content: "Thank you"; /* 表示するテキスト */
+    position: absolute; /* 親要素を基準に絶対配置 */
+    top: 50%; /* 親要素の中央に配置 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 要素自体の中心を中央に */
+    font-size: 200px; /* 非常に大きくする */
+    font-weight: 700;
+    color: rgba(200, 200, 200, 0.2); /* 薄いグレーで半透明 */
+    pointer-events: none; /* クリックイベントを無効にする（下のコンテンツをクリックできるように） */
+    white-space: nowrap; /* テキストが折り返さないように */
+    z-index: 0; /* 他のコンテンツより奥に表示 */
+    font-family: 'Inika', serif; /* ロゴと同じフォント */
+}
+
+/* レスポンシブ対応の考慮 (例: 小さい画面では文字サイズを調整) */
+@media (max-width: 768px) {
+    .thanks-page::before {
+        font-size: 120px; /* 小さい画面では文字を小さく */
+    }
+}
+@media (max-width: 480px) {
+    .thanks-page::before {
+        font-size: 80px;
+    }
+}

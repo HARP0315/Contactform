@@ -1,0 +1,125 @@
+/* ------------------------------------ */
+/* 認証ページ (auth-page Block) - register.cssとlogin.cssで共通 */
+/* ------------------------------------ */
+.auth-page {
+    padding: 40px 0; /* 上下のパディング */
+    background-color: #f5f5f5; /* ページ全体の背景色（common.cssと合わせる） */
+}
+
+.auth-page__inner {
+    /* フォームの最大幅と中央寄せ */
+    max-width: 800px; /* ページコンテンツの最大幅を調整 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 0 20px; /* 左右の余白 */
+}
+
+.auth-page__header {
+    text-align: center; /* タイトルを中央寄せ */
+    margin-bottom: 40px; /* タイトル下の余白 */
+}
+
+.auth-page__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+}
+
+.auth-page__content {
+    background-color: #fff; /* フォームの背景色 */
+    padding: 40px; /* 内側のパディング */
+    border-radius: 8px; /* 角丸 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 軽い影 */
+    max-width: 500px; /* フォーム自体の最大幅 */
+    margin: 0 auto; /* 中央寄せ */
+}
+
+/* ------------------------------------ */
+/* 認証フォーム (auth-form Block) - register.cssとlogin.cssで共通 */
+/* ------------------------------------ */
+.auth-form {
+    /* 認証フォーム全体 */
+}
+
+.auth-form__group {
+    /* 各入力グループ（ラベルと入力欄のセット）のスタイル */
+    margin-bottom: 25px; /* グループ間の余白 */
+}
+
+.auth-form__label-text {
+    /* ラベルテキストのスタイル */
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    display: block; /* ブロック要素にして下の入力欄と区切る */
+    margin-bottom: 8px; /* ラベルと入力欄の間の余白 */
+}
+
+.auth-form__input-field {
+    /* 入力フィールドのスタイル */
+    width: 100%; /* 親要素の幅いっぱいに広げる */
+    padding: 12px 15px; /* 内側のパディング */
+    border: 1px solid #ddd; /* 枠線 */
+    border-radius: 5px; /* 角丸 */
+    background-color: #f8f8f8; /* 薄いグレーの背景 */
+    font-size: 16px;
+    color: #333;
+    outline: none; /* フォーカス時のアウトラインを消す */
+    transition: border-color 0.3s ease; /* フォーカス時のアニメーション */
+}
+
+.auth-form__input-field:focus {
+    border-color: #4CAF50; /* フォーカス時の枠線の色 */
+}
+
+.auth-form__error-area {
+    /* エラーメッセージ表示エリアのスタイル */
+    min-height: 20px; /* エラーがない場合でも高さを確保してレイアウト崩れを防ぐ */
+    margin-top: 5px; /* 入力欄との間の余白 */
+    margin-bottom: 15px; /* 次のグループとの間の余白 */
+}
+
+.auth-form__error-text {
+    /* エラーテキストのスタイル */
+    color: #FF0000; /* 赤色 */
+    font-size: 14px;
+    margin: 0; /* デフォルトのmarginをリセット */
+}
+
+.auth-form__actions {
+    /* フォームのボタン群のスタイル */
+    text-align: center; /* ボタンを中央寄せ */
+    margin-top: 30px; /* 上の要素との余白 */
+}
+
+.auth-form__button {
+    /* 認証ボタンのスタイル */
+    background-color: #333; /* ボタンの背景色 */
+    color: #fff; /* 文字色 */
+    padding: 15px 40px; /* 内側のパディング */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.auth-form__button:hover {
+    background-color: #555; /* ホバー時の色 */
+}
+
+/* ------------------------------------ */
+/* ヘッダーの新規登録リンク (header-nav__link) */
+/* ------------------------------------ */
+/* このスタイルはcommon.cssに記述し、ヘッダーのレイアウトを調整します */
+/*
+.header-nav__link {
+    color: #555;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+.header-nav__link:hover {
+    color: #777;
+}
+*/

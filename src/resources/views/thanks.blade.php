@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="{{asset('css/thanks.css')}}">
 </head>
 <body>
-    <main>
-        <div>
-            <div>お問合せありがとうございました</div>
-            <div>
-                <a class="" href="/">HOME</a>
+    <main class="main"> {{-- Block: メインコンテンツ領域 (app.blade.phpのmainタグのクラスと合わせる) --}}
+        <div class="thanks-page"> {{-- Block: お問い合わせ完了ページ全体 --}}
+            <div class="thanks-page__inner"> {{-- Element: ページコンテンツの内側コンテナ --}}
+                <div class="thanks-page__message">お問合せありがとうございました</div> {{-- Element: 完了メッセージ --}}
+                <div class="thanks-page__actions"> {{-- Element: アクション（ボタンやリンク）のコンテナ --}}
+                    <a class="thanks-page__home-link" href="/">HOME</a> {{-- Element: トップへ戻るリンク --}}
+                </div>
             </div>
         </div>
     </main>

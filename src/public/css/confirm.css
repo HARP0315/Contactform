@@ -1,0 +1,114 @@
+/* ------------------------------------ */
+/* 確認画面ページ (confirm-page Block) */
+/* ------------------------------------ */
+.confirm-page {
+    padding: 40px 0; /* 上下のパディング */
+    background-color: #f5f5f5; /* ページ全体の背景色（common.cssと合わせる） */
+}
+
+.confirm-page__inner {
+    max-width: 800px; /* フォームの最大幅を調整 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 0 20px; /* 左右の余白 */
+}
+
+.confirm-page__title {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center; /* 中央寄せ */
+    margin-bottom: 40px; /* 下の余白 */
+    color: #333;
+}
+
+.confirm-page__content {
+    background-color: #fff; /* コンテンツの背景色 */
+    padding: 40px; /* 内側のパディング */
+    border-radius: 8px; /* 角丸 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 軽い影 */
+    max-width: 700px; /* フォーム自体の最大幅 */
+    margin: 0 auto; /* 中央寄せ */
+}
+
+/* ------------------------------------ */
+/* 確認フォーム (confirm-form Block) */
+/* ------------------------------------ */
+.confirm-form {
+    /* 確認画面のフォーム全体 */
+}
+
+.confirm-table {
+    width: 100%; /* テーブルの幅を100%に */
+    border-collapse: collapse; /* セルの境界線を結合 */
+    margin-bottom: 30px; /* ボタンとの間の余白 */
+}
+
+.confirm-table__row {
+    border-bottom: 1px solid #eee; /* 行の下線 */
+}
+
+.confirm-table__row:last-child {
+    border-bottom: none; /* 最後の行の下線はなし */
+}
+
+.confirm-table__header {
+    background-color: #e0e0e0; /* ヘッダーセルの背景色 */
+    padding: 15px 20px; /* 内側のパディング */
+    text-align: left; /* 左寄せ */
+    font-weight: 400; /* 太字ではない */
+    color: #555;
+    width: 180px; /* ヘッダーの幅を固定 */
+    white-space: nowrap; /* テキストが折り返さないように */
+}
+
+.confirm-table__data {
+    background-color: #fff; /* データセルの背景色 */
+    padding: 15px 20px; /* 内側のパディング */
+    text-align: left; /* 左寄せ */
+    color: #333;
+}
+
+/* ------------------------------------ */
+/* フォームのアクション (ボタン群) */
+/* ------------------------------------ */
+.confirm-form__actions {
+    text-align: center; /* ボタンを中央寄せ */
+    margin-top: 20px; /* テーブルとの間の余白 */
+}
+
+.confirm-form__button {
+    background-color: #333; /* ボタンの背景色 */
+    color: #fff; /* 文字色 */
+    padding: 15px 40px; /* 内側のパディング */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.confirm-form__button:hover {
+    background-color: #555; /* ホバー時の色 */
+}
+
+/* ------------------------------------ */
+/* 修正ボタンのフォーム (confirm-form--back Modifier) */
+/* ------------------------------------ */
+.confirm-page__back-form-wrap {
+    text-align: center; /* ボタンを中央寄せ */
+    margin-top: 20px; /* 送信ボタンとの間の余白 */
+}
+
+.confirm-form--back {
+    display: inline-block; /* フォーム自体をインラインブロックにして中央寄せを可能に */
+}
+
+.confirm-form__button--back {
+    background-color: #f0f0f0; /* 修正ボタンの背景色 */
+    color: #555; /* 文字色 */
+    margin-left: 20px; /* 送信ボタンとの間の余白 */
+}
+
+.confirm-form__button--back:hover {
+    background-color: #e0e0e0; /* ホバー時の色 */
+}
