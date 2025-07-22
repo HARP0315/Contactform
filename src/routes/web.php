@@ -28,3 +28,5 @@ Route::delete('/admin/{contact}', [UserController::class, 'destroy'])->name('con
 // GETメソッドで検索条件を受け取り、CSVをダウンロードさせる
 Route::get('/admin/export-csv', [UserController::class, 'exportCsv'])
     ->name('admin.export-csv'); // ルートに名前を付けておく
+
+    //logoutでloginページに行くようにして！
