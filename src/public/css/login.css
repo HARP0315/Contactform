@@ -24,12 +24,12 @@
 }
 
 .auth-page__content {
-    background-color: #FFFFFF;
+    max-width: 550px;
+    margin: 0 auto;
     padding: 40px;
     border: solid #C5B9B0 1px;
     border-radius: 8px;
-    max-width: 550px;
-    margin: 0 auto;
+    background-color: #FFFFFF;
 }
 
 /* ------------------------------------ */
@@ -41,16 +41,17 @@
 }
 
 .auth-form__label-text {
-    font-weight: 400;
-    color: #82756A;
     margin-bottom: 8px;
+    font-weight: 400;
+    font-size:22px;
+    color: #82756A;
 }
 
 .auth-form__input-field {
     width: 100%;
     padding: 12px 15px;
-    background-color: #f8f8f8;
     border: transparent;
+    background-color: #f8f8f8;
     color: #82756A;
     outline: none;
 }
@@ -62,9 +63,9 @@
 }
 
 .auth-form__error-text {
+    margin: 0;
     color: #FF0000;
     font-size: 14px;
-    margin: 0;
 }
 
 .auth-form__actions {
@@ -73,10 +74,10 @@
 }
 
 .auth-form__button {
-    background-color: #82756A;
-    color: #fff;
     padding: 10px 40px;
     border: none;
+    background-color: #82756A;
+    color: #fff;
     font-size: 18px;
     cursor: pointer;
 }

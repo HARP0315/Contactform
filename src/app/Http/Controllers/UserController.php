@@ -9,6 +9,7 @@ use Carbon\Carbon;
 
 class UserController extends Controller
 {
+    // tinyint'gender'の日本語化リスト
     protected $genderMap = [
         '1' => '男性',
         '2' => '女性',
@@ -22,7 +23,7 @@ class UserController extends Controller
         // 性別マップをビューに渡す
         $genderMap = $this->genderMap;
 
-        // お問い合わせデータをページネーションして取得（検索条件なし）
+        // お問い合わせデータをページネーションして取得
         $contacts = Contact::with('category')->paginate(7);
 
         return view('admin', compact('contacts','categories','genderMap'));
@@ -39,13 +40,13 @@ class UserController extends Controller
         $gender = $request->input('gender');
         $created_at = $request->input('created_at');
 
-        // クエリビルダの初期化とスコープ適用
-        $query = Contact::with('category'); // カテゴリ情報も取得
+        // カテゴリ情報の取得
+        $query = Contact::with('category');
 
-        $query->keywordSearch($keyword)         // キーワード検索スコープ
-            ->whereCategoryId($category_id)   // カテゴリIDスコープ
-            ->whereGender($gender)            // 性別スコープ
-            ->whereCreatedAt($created_at);     // 作成日スコープ
+        $query->keywordSearch($keyword)
+            ->whereCategoryId($category_id)
+            ->whereGender($gender)
+            ->whereCreatedAt($created_at);
 
         // ページネーション
         $contacts = $query->paginate(7);
@@ -53,6 +54,14 @@ class UserController extends Controller
         return view('admin', compact('contacts','categories','genderMap'));
     }
 
+
+    // TODO モーダル全く分からない、時間的に厳しいと判断しAIに聞いたものをそのまま。自分でも書けるようになる
+    /**
+     * モーダルからの削除アクション
+     *
+     * @param Contact $contact
+     * @return void
+     */
     public function destroy(Contact $contact) // 引数名はルーティングの {contact}と揃える
     {
 
@@ -63,6 +72,13 @@ class UserController extends Controller
         return redirect('admin');
     }
 
+    // TODO 課題：自分で考えずAIに聞いてそのまま記載。自分でも書けるようになる
+    /**
+     * CSVでのダウンロード
+     *
+     * @param Request $request
+     * @return void
+     */
     public function exportCsv(Request $request)
     {
         // === 1. リクエストから検索条件を取得 ===

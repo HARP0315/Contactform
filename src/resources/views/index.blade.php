@@ -50,7 +50,6 @@
                 placeholder="例:test@sample.com" value="{{ old('email') }}">
             </div>
             @error('email') <p class="contact-form__error">{{ $message }}</p>@enderror
-
             <div class="contact-form__group">
                 <p class="contact-form__label-text">電話番号
                     <span class="contact-form__label-required">※</span>
@@ -75,14 +74,12 @@
                 placeholder="例:東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}">
             </div>
             @error('address') <p class="contact-form__error">{{ $message }}</p> @enderror
-
             <div class="contact-form__group">
                 <p class="contact-form__label-text">建物</p>
                 <input class="contact-form__input-field--building" type="text" name="building"
                 placeholder="例:千駄ヶ谷マンション123" value="{{ old('building') }}">
             </div>
             @error('building') <p class="contact-form__error">{{ $message }}</p> @enderror
-
             <div class="contact-form__group">
                 <p class="contact-form__label-text">お問い合わせの種類
                     <span class="contact-form__label-required">※</span>
@@ -92,7 +89,7 @@
                         <option value=""
                         @if(old('category_id') === null || old('category_id') === '') selected
                         @endif>選択してください</option>
-
+                        {{-- データの取り出し --}}
                         @foreach ($categories as $category)
                         <option value="{{$category['id']}}"
                         @if(old('category_id') == $category['id']) selected
@@ -102,7 +99,6 @@
                 </div>
             </div>
             @error('category_id') <p class="contact-form__error">{{ $message }}</p> @enderror
-
             <div class="contact-form__group">
                 <p class="contact-form__label-text">お問い合わせ内容
                     <span class="contact-form__label-required">※</span>
@@ -111,12 +107,11 @@
                 cols="30" rows="10" placeholder="お問い合わせ内容をご記載ください" >{{ old('detail') }}</textarea>
             </div>
             @error('detail') <p class="contact-form__error">{{ $message }}</p> @enderror
-
         </div>
-
+        {{-- 確認ボタン --}}
         <div class="contact-form__actions">
             <button type="submit" class="contact-form__button">確認画面</button>
         </div>
     </form>
-</div> {{-- / .contact-page --}}
+</div>
 @endsection

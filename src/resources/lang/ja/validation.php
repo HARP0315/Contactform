@@ -96,6 +96,7 @@ return [
     'password'             => 'パスワードが正しくありません。',
     'present'              => ':attributeが存在している必要があります。',
     'regex'                => ':attributeには、有効な正規表現を指定してください。',
+    // 修正
     'required'             => ':attributeを入力してください',
     'required_if'          => ':otherが:valueの場合、:attributeを指定してください。',
     'required_unless'      => ':otherが:values以外の場合、:attributeを指定してください。',
@@ -146,6 +147,7 @@ return [
     |
     */
 
+    // 設定を変更
     'attributes' => [
         'name' => '名前',
         'email' => 'メールアドレス',

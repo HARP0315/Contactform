@@ -28,7 +28,8 @@
                     <div class="search-form__input">
                         {{-- 検索内容 --}}
                         {{-- TODO 矢印修正の範囲外になるように構造修正必要 --}}
-                        <input class="search-form__input-field" type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" >
+                        <input class="search-form__input-field" type="text"
+                        name="keyword" placeholder="名前やメールアドレスを入力してください" >
                         {{-- TODO 本当は擬似要素で矢印つけたい。構造修正必要 --}}
                         <select class="search-form__select" name="gender">
                             <option value="" selected>性別</option>
@@ -40,14 +41,15 @@
                         {{-- TODO 本当は擬似要素で矢印つけたい。構造修正必要 --}}
                         <select class="search-form__select" name="category_id">
                             <option value="" selected>お問い合わせの種類</option>
-
+                            {{-- データ取り出し --}}
                             @foreach ($categories as $category)
                             <option value="{{$category['id']}}"
                             @if(old('category_id') == $category['id']) selected
                             @endif>{{$category['content']}}</option>
                             @endforeach
                         </select>
-                        <input class="search-form__input-field" type="date" name="created_at" placehoder="年/月/日"/>
+                        <input class="search-form__input-field" type="date" name="created_at"
+                        placehoder="年/月/日"/>
                         {{-- 検索・リセットボタン --}}
                     </div>
                     <div class="search-form__wrapper">

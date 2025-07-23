@@ -74,20 +74,20 @@
 .search-form__button {
     margin: 5px;
     padding: 0 5px;
-    background-color: #8B7969;
-    color: #fff;
     border: none;
     border-radius: 5px;
+    background-color: #8B7969;
+    color: #fff;
     cursor: pointer;
 }
 
 .search-form__button--reset {
     margin: 5px;
     padding: 0 5px;
-    background-color: #D9C6B5;
-    color: #fff;
     border: none;
     border-radius: 5px;
+    background-color: #D9C6B5;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -120,11 +120,11 @@
 /* CSVエキスポート */
 
 .export-form__button {
-    background-color: #E1DBD699;
-    color: #8B7969;
     padding: 8px 20px;
     border: none;
     border-radius: 2px;
+    background-color: #E1DBD699;
+    color: #8B7969;
     cursor: pointer;
 }
 
@@ -164,11 +164,11 @@ svg.w-5.h-5 {
 }
 
 .contacts-table__header {
-    background-color: #8B7969;
     padding: 15px 20px;
+    background-color: #8B7969;
+    color: #f8f8f8;
     text-align: left;
     font-weight: 400;
-    color: #f8f8f8;
 }
 
 .contacts-table__header--detail {
@@ -187,10 +187,10 @@ svg.w-5.h-5 {
 }
 
 .modal-open-button {
-    background-color: #F4F4F44D;
     padding: 3px 15px;
-    color: #D9C6B599;
     border: solid #D9C6B599 1px;
+    background-color: #F4F4F44D;
+    color: #D9C6B599;
     font-size: 14px;
     cursor: pointer;
 }

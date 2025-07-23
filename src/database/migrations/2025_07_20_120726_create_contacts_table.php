@@ -15,6 +15,7 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
+            // 主テーブル（caytegories）にてカテゴリが削除された場合、一緒に削除される
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->string('first_name', 255);
             $table->string('last_name', 255);

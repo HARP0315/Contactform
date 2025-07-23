@@ -23,13 +23,24 @@ class Contact extends Model
             'detail',
     ];
 
+    /**
+     * 主テーブル（categorys）よりデータを一つ持ってくる
+     *
+     * @return void
+     */
     public function category()
     {
 
         return $this->belongsTo(Category::class);
     }
 
-    // カテゴリIDで絞り込むスコープ
+    /**
+     * カテゴリIDで絞り込むスコープ
+     *
+     * @param [object] $query
+     * @param [bigint] $category_id
+     * @return void
+     */
     public function scopeWhereCategoryId($query, $category_id)
     {
         if (!empty($category_id)) {
@@ -38,7 +49,13 @@ class Contact extends Model
         return $query;
     }
 
-    // 性別で絞り込むスコープ
+    /**
+     * 性別で絞り込むスコープ
+     *
+     * @param [object] $query
+     * @param [tinyint] $gender
+     * @return void
+     */
     public function scopeWhereGender($query, $gender)
     {
         if (!empty($gender)) {
@@ -47,7 +64,14 @@ class Contact extends Model
         return $query;
     }
 
-    // 作成日で絞り込むスコープ
+    // TODO 課題：もっとシンプルに書きたいがどうしても検索できず、AIに試行錯誤して書いてもらった
+    /**
+     * 作成日で絞り込むスコープ
+     *
+     * @param [object] $query
+     * @param [timestamp] $createdAtDate
+     * @return void
+     */
     public function scopeWhereCreatedAt($query, $createdAtDate)
     {
         if (!empty($createdAtDate)) {
@@ -69,7 +93,13 @@ class Contact extends Model
         return $query;
     }
 
-    // キーワードで部分マッチ検索するスコープ（OR条件）
+    /**
+     * キーワードで部分マッチ検索するスコープ（OR条件）
+     *
+     * @param [object] $query
+     * @param [string] $keyword
+     * @return void
+     */
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {
