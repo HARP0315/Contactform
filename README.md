@@ -27,7 +27,8 @@
 * nginx 1.28.0
 
 ## ER図
-< - - - 作成したER図の画像 - - - >
+<img width="491" height="391" alt="ER図" src="https://github.com/user-attachments/assets/74f9d754-3210-4d7d-b915-83bd254f9e9f" />
+<img width="181" height="211" alt="users" src="https://github.com/user-attachments/assets/abf14779-12fa-4321-a1bf-2900cfa76bea" />
 
 ## URL
 * 開発環境： http://localhost/
