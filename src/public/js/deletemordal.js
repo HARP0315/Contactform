@@ -1,3 +1,5 @@
+// TODO 課題：JS未勉強なので全くわからず。AIが書いたものを転載
+
 document.addEventListener('DOMContentLoaded', function () {
 
     // === 1. 要素の取得 ===

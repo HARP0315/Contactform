@@ -6,9 +6,11 @@
 
 @section('content')
 <div class="contact-page">
+    {{-- タイトル --}}
     <div class="contact-page__inner">
         <h2 class="contact-page__title">Contact</h2>
     </div>
+    {{-- お問い合わせ入力フォーム --}}
     <form class="contact-form" action="/confirm" method="post">
         @csrf
         <div class="contact-form__content">
