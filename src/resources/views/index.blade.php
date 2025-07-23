@@ -35,9 +35,15 @@
                     <span class="contact-form__label-required">※</span>
                 </p>
                 <div class="contact-form__input-radio">
-                    <label class="contact-form__radio-label"><input class="contact-form__radio-input" type="radio" name="gender" value="1" checked>男性</label>
-                    <label class="contact-form__radio-label"><input class="contact-form__radio-input" type="radio" name="gender" value="2" >女性</label>
-                    <label class="contact-form__radio-label"><input class="contact-form__radio-input" type="radio" name="gender" value="3" >その他</label>
+                    <label class="contact-form__radio-label">
+                        <input class="contact-form__radio-input" type="radio" name="gender"
+                        value="1" {{ old ('gender') == '1' ? 'checked' : '' }} checked>男性</label>
+                    <label class="contact-form__radio-label">
+                        <input class="contact-form__radio-input" type="radio" name="gender"
+                        value="2" {{ old ('gender') == '2' ? 'checked' : '' }}>女性</label>
+                    <label class="contact-form__radio-label">
+                        <input class="contact-form__radio-input" type="radio" name="gender"
+                        value="3" {{ old ('gender') == '3' ? 'checked' : '' }}>その他</label>
                 </div>
             </div>
             @error('gender') <p class="contact-form__error">{{ $message }}</p> @enderror
