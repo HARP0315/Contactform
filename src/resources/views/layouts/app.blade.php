@@ -13,23 +13,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header"> {{-- Block: サイト共通のヘッダー --}}
-        <div class="header__inner"> {{-- Element: ヘッダーの最大幅を制御する内側のコンテナ --}}
-            <div class="header__wrap"> {{-- Element: ヘッダー内の要素の配置を制御するラップ（Flexboxコンテナ） --}}
-                <div class="header__spacer-left"></div> {{-- ★追加: ロゴを中央に寄せるための左側のスペーサー★ --}}
-                <a class="header__logo" href="/">FashionablyLate</a> {{-- Element: ヘッダーのロゴ --}}
-                <nav class="header__nav"> {{-- Element: ヘッダーのナビゲーション --}}
-                    <ul class="header-nav__list"> {{-- Element: ナビゲーションのリスト --}}
-                        <li class="header-nav__item"> {{-- Element: ナビゲーションの各項目 --}}
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__wrap">
+                <a class="header__logo" href="/">FashionablyLate</a>
+                <nav class="header__nav">
+                    <ul class="header-nav__list">
+                        <li class="header-nav__item">
                             @yield('link') {{-- ここにログイン/ログアウトなどのリンクが入る想定 --}}
                         </li>
                     </ul>
                 </nav>
-                <div class="header__spacer-right"></div> {{-- ★追加: ナビを右端に寄せるための右側のスペーサー★ --}}
             </div>
         </div>
     </header>
-<main class="main"> {{-- Block: メインコンテンツ領域 --}}
+<main class="main">
     @yield('content')
 </main>
 </body>

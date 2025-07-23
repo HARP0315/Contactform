@@ -143,4 +143,10 @@ class UserController extends Controller
         // === 5. レスポンスとしてCSVをダウンロードさせる ===
         return response()->stream($callback, 200, $headers);
     }
+
+    public function logout(){
+
+        view('login');
+
+    }
 }

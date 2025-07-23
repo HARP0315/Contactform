@@ -5,7 +5,7 @@
 @endsection
 
 @section('link')
-<a class="header-nav__link" href="/login">login</a> {{-- ヘッダーナビゲーションのリンク --}}
+<a class="header-nav__button" href="/login">login</a> {{-- ヘッダーナビゲーションのリンク --}}
 @endsection
 
 @section('content')

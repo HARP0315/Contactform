@@ -2,14 +2,15 @@
 /* 基本設定 (ResetやGlobal Styles) */
 /* ------------------------------------ */
 body {
+    /* 文字フォントの変更 */
     font-family: "Inika", serif;
-    font-weight: 400;
     font-style: normal;
-    line-height: 1.6;
-    color: #333; /* 基本の文字色 */
-    background-color: #f5f5f5; /* ページ全体の背景色 */
-    margin: 0;
-    padding: 0;
+
+    /* 通常設定 */
+    max-width: 1512px;
+    background-color: #fff;
+    color: #8B7969;
+    line-height: 1.5;
 }
 
 a {
@@ -20,43 +21,40 @@ a {
 /* ------------------------------------ */
 /* ヘッダー (header Block) */
 /* ------------------------------------ */
+
 .header {
-    background-color: #fff; /* ヘッダーの背景色 */
-    padding: 15px 0; /* 上下のパディング */
-    text-align: center; /* ロゴを中央に配置 */
+    height: 100px;
+    border-bottom: solid 1px #E0DFDE;
 }
 
 .header__inner {
-    max-width: 1512px; /* ベースとなる最大幅 */
-    margin: 0 auto; /* 中央寄せ */
-    padding: 0 20px; /* 左右の余白 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .header__wrap {
-    /* 画像にはロゴのみなので、このラップのFlexbox設定は不要。HTML構造を維持 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .header__logo {
-    font-family: 'Inika', serif; /* ロゴ専用フォント */
-    font-size: 28px;
-    font-weight: 700; /* Inikaの太字 */
-    color: #333; /* 画像のロゴの色に合わせて調整 */
-    display: inline-block; /* text-align: center; が効くように */
+    font-size: 26px;
 }
 
 .header__nav {
-    display: block; /* 画像にはナビがないため、非表示にする */
+    position: absolute;
+    right: 50px;
 }
 
-/* ------------------------------------ */
-/* メインコンテンツ領域 (main Block) */
-/* ------------------------------------ */
-.main {
-    padding: 40px 20px; /* 上下のパディングと左右の余白 */
-    max-width: 1512px;
-    margin: 0 auto;
+.header-nav__button{
+    font-family: "Inika", serif;
+    padding: 1px 10px;
+    border: solid 1px #E0DFDE;
+    color: #D9C6B5;
 }
-
-/* ------------------------------------ */
-/* フッター (footer Block) - 画像にないためスタイルは含めない */
-/* ------------------------------------ */
