@@ -27,23 +27,23 @@
                     <td class="confirm-table__data">{{$contact['email']}}</td>
                 </tr>
                 <tr class="confirm-table__row">
-                    <th class="confirm-table__header"></th>
+                    <th class="confirm-table__header">電話番号</th>
                     <td class="confirm-table__data">{{$contact['tel1']}}{{$contact['tel2']}}{{$contact['tel3']}}</td>
                 </tr>
                 <tr class="confirm-table__row">
-                    <th class="confirm-table__header"></th>
+                    <th class="confirm-table__header">住所</th>
                     <td class="confirm-table__data">{{$contact['address']}}</td>
                 </tr>
                 <tr class="confirm-table__row">
-                    <th class="confirm-table__header"></th>
+                    <th class="confirm-table__header">建物</th>
                     <td class="confirm-table__data">{{$contact['building']}}</td>
                 </tr>
                 <tr class="confirm-table__row">
-                    <th class="confirm-table__header"></th>
+                    <th class="confirm-table__header">お問い合わせの種類 </th>
                     <td class="confirm-table__data">{{$contact['category_content']}}</td>
                 </tr>
                 <tr class="confirm-table__row">
-                    <th class="confirm-table__header"></th>
+                    <th class="confirm-table__header">お問い合わせ内容</th>
                     <td class="confirm-table__data">{{$contact['detail']}}</td>
                 </tr>
             </table>

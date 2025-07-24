@@ -216,7 +216,7 @@ svg.w-5.h-5 {
     cursor: pointer;
 }
 
-/* TODO 課題：モーダルレイアウト。時間不足。AIが書いたものを転載（一部修正） */
+/* TODO 課題：モーダルレイアウト。AIが書いたものを少しいじった。勉強含めもう少し調整したいが時間不足 */
 
 /* ------------------------------------ */
 /*               モーダル               */
@@ -232,14 +232,14 @@ svg.w-5.h-5 {
     width: 100%;
     height: 100%;
 
-    z-index: 1000; /* 他のコンテンツより手前に表示 */
-    overflow: auto; /* モーダル内容が画面を超えた場合にスクロール可能にする */
+    z-index: 1000;
+    overflow: auto;
 
-    /* モーダル本体 (.modal-main) を中央に配置するためのFlexbox設定 */
-    justify-content: center; /* 水平方向の中央寄せ */
-    align-items: center; /* 垂直方向の中央寄せ */
+    /* モーダル本体 */
+    justify-content: center;
+    align-items: center;
 
-    /* JavaScriptで .is-active クラスが付与されたときに display: flex; で表示されます */
+    /* JavaScriptで .is-active クラスが付与されたときに display: flex; で表示される */
 }
 
 /* JavaScriptで .is-active クラスが付与されたときに表示されるルール */
@@ -247,17 +247,14 @@ svg.w-5.h-5 {
     display: flex; /* .modal-overlay がアクティブになったらFlexboxとして表示 */
 }
 
-.modal-main { /* モーダル本体のコンテナ（画像で白い箱の部分） */
-    background-color: #fff; /* 白い背景 */
-    padding: 30px; /* 内側のパディング */
-    box-shadow: 0 4px 20px rgba(4, 4, 0, 0.3); /* 影 */
-
-    max-width: 600px; /* 画像に合わせて最大幅を調整 */
+.modal-main {
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(139,121,105,0.2);
+    max-width: 600px;
     width: 90%; /* 画面幅の90%を使用し、レスポンシブに対応 */
-
     position: relative; /* 閉じるボタンの絶対配置の基準にするため */
     z-index: 1001; /* オーバーレイより手前に表示 */
-    box-sizing: border-box; /* パディングをwidth/heightに含める */
+    background-color: #fff;
 
     /* Flexboxの子要素として、縮小・拡大せずコンテンツの幅を維持 */
     flex-shrink: 0;
@@ -265,81 +262,62 @@ svg.w-5.h-5 {
     flex-basis: auto;
 }
 
-.modal-content { /* モーダルのコンテンツ部分（現在のHTML構造では .modal-main の直下） */
-    /* 特に複雑なスタイルが不要であれば、modal-main のパディングで十分な場合が多い */
-    /* 必要であれば追加のスタイルを記述 */
-}
-
 /* TODO 課題：時間があれば×ボタン編集 */
-.modal-close-button { /* 右上の閉じるボタン (X) */
+/* 閉じるボタン */
+.modal-close-button {
     position: absolute; /* .modal-main を基準に絶対配置 */
-    top: 15px; /* 上からの距離 */
-    right: 15px; /* 右からの距離 */
-    background: none; /* 背景なし */
-    border: none; /* 枠線なし */
-    font-size: 24px; /* 文字サイズ */
-    cursor: pointer; /* カーソルをポインターに */
-    color: #aaa; /* 薄い灰色 */
-    transition: color 0.3s ease; /* ホバー時のアニメーション */
-}
-
-.modal-close-button:hover {
-    color: #666; /* ホバー時の色 */
+    top: 15px;
+    right: 15px;
+    border: none;
+    background: none;
+    color: #aaa;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 /* ------------------------------------ */
 /* モーダル内のフォーム (modal-form Block) */
 /* ------------------------------------ */
 .modal-form {
-    padding: 20px 0; /* 上下左右の内側パディング */
+    padding: 20px 0;
 }
 
-.modal-table { /* モーダル内の問い合わせ詳細テーブル */
-    width: 100%; /* 幅を100%に */
-    border-collapse: collapse; /* セルの境界線を結合 */
-    margin-bottom: 25px; /* 削除ボタンとの余白 */
-    font-size: 15px; /* 文字サイズ */
+.modal-table {
+    margin-bottom: 25px;
+    width: 100%;
+    font-size: 15px;
+    border-collapse: collapse;
 }
 
-.modal-table__row {
-    border-bottom: 1px solid #eee; /* 行の下線 */
-}
-
-.modal-table__row:last-child {
-    border-bottom: none; /* 最後の行の下線はなし */
-}
-
-.modal-table__header { /* テーブルの左側のラベル（例：お名前） */
-    background-color: #f8f8f8; /* 薄いグレーの背景 */
-    padding: 12px 15px; /* 内側のパディング */
-    text-align: left; /* 左寄せ */
-    font-weight: 400; /* 太字ではない */
+.modal-table__header {
+    width: 150px;
+    padding: 12px 15px;
+    text-align: left;
     color: #8B7969;
-    width: 150px; /* ヘッダーの幅を固定 */
-    white-space: nowrap; /* テキストが折り返さないように */
+    font-weight: bold;
+    white-space: nowrap;
     vertical-align: top; /* 内容が長い場合、上揃えに */
 }
 
-.modal-table__data { /* テーブルの右側のデータ（例：山田 太郎） */
-    padding: 12px 15px; /* 内側のパディング */
-    text-align: left; /* 左寄せ */
+.modal-table__data {
+    /* ↓表示はされないけどlast_nameとfirst_nameはデータ来ていて指定がないと縦に並ぶため*/
+    display: flex;
+    padding: 12px 15px;
+    text-align: left;
     color: #8B7969;
-    word-break: break-word; /* テキストがtdの幅を超えたら折り返す */
-    white-space: normal; /* 折り返しを有効にする */
+    word-break: break-word;
+    white-space: normal;
+    white-space: pre-wrap;
 }
 
-.modal-form__button.modal-form__button--delete { /* 削除ボタン */
-    background-color: #ba360e; /* 赤系の背景色 */
-    color: #fff; /* 文字色 */
-    padding: 10px 25px; /* 内側のパディング */
+.modal-form__button.modal-form__button--delete {
+    display: block; /* margin効かせたい場合、ボタンはblockに*/
+    margin: 0 auto;
+    padding: 10px 25px;
     border: none;
     font-size: 16px;
+    background-color: #ba360e;
+    color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
-    display: block; /* ボタンをブロック要素にして中央寄せしやすく */
-    margin: 0 auto; /* 中央寄せ */
 }
 
-.modal-form__button.modal-form__button--delete:hover {
-    background-color: #c82333; /* ホバー時の色 */
-}

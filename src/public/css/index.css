@@ -126,9 +126,29 @@
     cursor: pointer;
 }
 
-/* TODO 時間が間に合えばボタンの見た目修正したい */
-.contact-form__radio-input { /* ラジオボタン自体 */
+.contact-form__radio-input {
     margin-right: 8px;
+}
+
+input[type="radio"] {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #8B7969;
+    border-radius: 50%;
+    vertical-align: -2px;
+}
+
+input[type="radio"]:checked:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #8B7969;
+    content: '';
 }
 
 /* 入力項目（category_id） */
