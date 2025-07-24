@@ -50,8 +50,8 @@
 .search-form__select {
     width: 80%;
     margin: 5px;
+    line-height: 100%;
     border: 1px solid #E0DFDE;
-    border-radius: 2px;
     background-color: #f8f8f8;
     color: #8B7969;
     font-size: 12px;
@@ -72,20 +72,22 @@
 }
 
 .search-form__button {
+    width: 70px;
     margin: 5px;
     padding: 0 5px;
+    line-height: 100%;
     border: none;
-    border-radius: 5px;
     background-color: #8B7969;
     color: #fff;
     cursor: pointer;
 }
 
 .search-form__button--reset {
+    width: 70px;
     margin: 5px;
     padding: 0 5px;
+    line-height: 100%;
     border: none;
-    border-radius: 5px;
     background-color: #D9C6B5;
     color: #fff;
     cursor: pointer;
@@ -106,7 +108,6 @@
     display: none;
 } */
 
-
 /* ------------------------------------ */
 /*          ユーティリティエリア              */
 /* ------------------------------------ */
@@ -122,7 +123,6 @@
 .export-form__button {
     padding: 8px 20px;
     border: none;
-    border-radius: 2px;
     background-color: #E1DBD699;
     color: #8B7969;
     cursor: pointer;
@@ -229,7 +229,6 @@ svg.w-5.h-5 {
 .modal-main { /* モーダル本体のコンテナ（画像で白い箱の部分） */
     background-color: #fff; /* 白い背景 */
     padding: 30px; /* 内側のパディング */
-    border-radius: 8px; /* 角丸 */
     box-shadow: 0 4px 20px rgba(4, 4, 0, 0.3); /* 影 */
 
     max-width: 600px; /* 画像に合わせて最大幅を調整 */
@@ -313,7 +312,6 @@ svg.w-5.h-5 {
     color: #fff; /* 文字色 */
     padding: 10px 25px; /* 内側のパディング */
     border: none;
-    border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease; /* ホバー時のアニメーション */

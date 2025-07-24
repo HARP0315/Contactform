@@ -2,16 +2,13 @@
 /*        お問い合わせ完了ページ            */
 /* ------------------------------------ */
 .thanks-page {
-    display: flex; /* Flexboxでコンテンツを中央に */
+    display: flex;
     justify-content: center;
-    flex-direction: column; /* 縦並びにする */
-    position: relative; /* 擬似要素の基準位置 */
-    overflow: hidden; /* 擬似要素がはみ出さないように */
-    min-height: calc(100vh - 100px); /* 画面の高さいっぱいに広がるように調整（ヘッダーやフッターの高さによる） */
-    padding: 80px 0;
-    text-align: center;
     align-items: center;
-    background-color: #f5f5f5;
+    position: relative;
+    overflow: hidden;
+    min-height:100vh;
+    text-align: center;
 }
 
 .thanks-page__inner {
@@ -20,60 +17,46 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    background-color: #fff;
+    background-color: transparent;
 }
 
 .thanks-page__message {
-    margin-bottom: 30px;
-    color: #333;
-    font-size: 24px;
-    font-weight: 700;
+    margin-bottom: 40px;
+    color: #8B7969;
+    font-family: initial;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .thanks-page__actions {
     margin-top: 20px;
+
 }
 
 .thanks-page__home-link {
     display: inline-block;
-    padding: 12px 30px;
+    margin-top: 10px;
+    padding: 10px 40px;
+    line-height: 100%;
     border: none;
-    border-radius: 5px;
-    background-color: #666;
+    background-color: #8B7969;
     color: #fff;
-    font-size: 16px;
-    font-weight: 700;
     cursor: pointer;
 }
 
+/* TODO 画面サイズが変わった時でも全体表示されるようにしたかったけど正解に辿り着けず */
 /* ------------------------------------ */
 /*            背景の「Thank you」         */
 /* ------------------------------------ */
-.thanks-page::before { /* thanks-page の擬似要素として追加 */
+.thanks-page::before {
     content: "Thank you";
-    position: absolute; /* 親要素を基準に絶対配置 */
-    top: 50%; /* 親要素の中央に配置 */
+    position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* 要素自体の中心を中央に */
-    z-index: 0; /* 他のコンテンツより奥に表示 */
-    color: rgba(200, 200, 200, 0.2);
-    font-family: 'Inika', serif;
-    font-size: 200px; /* 非常に大きくする */
-    font-weight: 700;
-    pointer-events: none; /* クリックイベントを無効にする（下のコンテンツをクリックできるように） */
-    white-space: nowrap; /* テキストが折り返さないように */
-}
-
-/* レスポンシブ対応の考慮 */
-@media (max-width: 768px) {
-    .thanks-page::before {
-        font-size: 120px;
-    }
-}
-@media (max-width: 480px) {
-    .thanks-page::before {
-        font-size: 80px;
-    }
+    transform: translate(-50%, -58%);
+    z-index: 0;
+    color: rgba(139,121,105,0.05);
+    font-weight: 400;
+    font-size: 280px;
+    white-space: nowrap;
 }

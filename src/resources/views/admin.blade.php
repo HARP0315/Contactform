@@ -102,6 +102,7 @@
                                 data-address="{{ $contact->address }}"
                                 data-building="{{ $contact->building }}"
                                 data-category_id="{{ $contact->category_id }}"
+                                data-category_content="{{ $contact->category['content'] }}"
                                 data-detail="{{ $contact->detail }}">詳細
                                 </button>
                             </div>

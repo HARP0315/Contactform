@@ -2,60 +2,54 @@
 /*            確認画面ページ               */
 /* ------------------------------------ */
 .confirm-page {
-    padding: 40px 0;
-    background-color: #f5f5f5;
+    min-height: 100vh;
 }
 
 .confirm-page__inner {
-    max-width: 800px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding:15px;
 }
 
 .confirm-page__title {
-    margin-bottom: 40px;
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 400;
     text-align: center;
-}
-
-.confirm-page__content {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    background-color: #fff;
 }
 
 /* ------------------------------------ */
 /*               確認フォーム             */
 /* ------------------------------------ */
+
+.confirm-page__content {
+    max-width: 900px;
+    max-height: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #fff;
+}
+
 .confirm-form {
     /* 確認画面のフォーム全体 */
 }
 
 .confirm-table {
     width: 100%;
-    margin-bottom: 30px;
-    border-collapse: collapse;
+    margin-bottom: 40px;
+    border: solid #E0DFDE 1px;
 }
 
 .confirm-table__row {
-    border-bottom: 1px solid #eee;
-}
-
-.confirm-table__row:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid #E0DFDE;
 }
 
 .confirm-table__header {
     width: 180px;
     padding: 15px 20px;
+    font-weight:normal;
     text-align: left;
-    font-weight: 400;
-    background-color: #e0e0e0;
-    color: #555;
+    background-color: #baa899;
+    color: #fff;
     white-space: nowrap;
 }
 
@@ -63,7 +57,7 @@
     padding: 15px 20px;
     text-align: left;
     background-color: #fff;
-    color: #333;
+    color: #8B7969;
 }
 
 /* ------------------------------------ */
@@ -75,34 +69,28 @@
 }
 
 .confirm-form__button {
-    padding: 15px 40px;
+    margin-right: 20px;
+    padding: 10px 40px;
     border: none;
-    border-radius: 5px;
-    background-color: #333;
+    background-color: #82756A;
     color: #fff;
-    font-size: 18px;
-    font-weight: 700;
+    line-height:100%;
+    font-size: 20px;
+    font-weight: 400;
     cursor: pointer;
 }
 
 /* ------------------------------------ */
 /*           修正ボタンのフォーム            */
 /* ------------------------------------ */
-.confirm-page__back-form-wrap {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.confirm-form--back {
-    display: inline-block;
-}
 
 .confirm-form__button--back {
     margin-left: 20px;
-    background-color: #f0f0f0;
-    color: #555;
-}
-
-.confirm-form__button--back:hover {
-    background-color: #e0e0e0;
+    border: none;
+    border-bottom: solid #8B7969 1px;
+    background-color: #fff;
+    color: #8B7969;
+    line-height:100%;
+    font-size: 20px;
+    font-weight: 400;
 }
