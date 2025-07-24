@@ -24,7 +24,7 @@ class UserController extends Controller
         $genderMap = $this->genderMap;
 
         // お問い合わせデータをページネーションして取得
-        $contacts = Contact::with('category')->paginate(7);
+        $contacts = Contact::with('category')->paginate(3);
 
         return view('admin', compact('contacts','categories','genderMap'));
     }

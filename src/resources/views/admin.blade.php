@@ -21,35 +21,43 @@
         </div>
         <div class="admin-page__content">
             {{-- search群 --}}
-            {{-- TODO 課題：HTMLの構造 修正必要 --}}
+            {{-- TODO 課題：ボタン２つを分ける必要なかったかも。時間不足で調整断念 --}}
             <form class="search-form" action="/admin/search" method="get">
                 @csrf
                 <div class="search-form__group-container">
                     <div class="search-form__input">
                         {{-- 検索内容 --}}
-                        {{-- TODO 矢印修正の範囲外になるように構造修正必要 --}}
-                        <input class="search-form__input-field" type="text"
+                        <div class="search-form__input--grid1">
+                            <input class="search-form__input-field1" type="text"
                         name="keyword" placeholder="名前やメールアドレスを入力してください" >
-                        {{-- TODO 本当は擬似要素で矢印つけたい。構造修正必要 --}}
-                        <select class="search-form__select" name="gender">
-                            <option value="" selected>性別</option>
-                            <option value="">すべて</option>
-                            <option value="1">男性</option>
-                            <option value="2">女性</option>
-                            <option value="3">その他</option>
-                        </select>
-                        {{-- TODO 本当は擬似要素で矢印つけたい。構造修正必要 --}}
-                        <select class="search-form__select" name="category_id">
-                            <option value="" selected>お問い合わせの種類</option>
-                            {{-- データ取り出し --}}
-                            @foreach ($categories as $category)
-                            <option value="{{$category['id']}}"
-                            @if(old('category_id') == $category['id']) selected
-                            @endif>{{$category['content']}}</option>
-                            @endforeach
-                        </select>
-                        <input class="search-form__input-field" type="date" name="created_at"
+                        </div>
+                        {{-- TODO 本当は擬似要素で矢印つけたい。修正時間不足 --}}
+                        <div class="search-form__input--grid2">
+                            <select class="search-form__select" name="gender">
+                                <option value="" selected>性別</option>
+                                <option value="">すべて</option>
+                                <option value="1">男性</option>
+                                <option value="2">女性</option>
+                                <option value="3">その他</option>
+                            </select>
+                        </div>
+                        {{-- TODO 本当は擬似要素で矢印つけたい。修正時間不足 --}}
+                        <div class="search-form__input--grid3">
+                            <select class="search-form__select" name="category_id">
+                                <option value="" selected>お問い合わせの種類</option>
+                                {{-- データ取り出し --}}
+                                @foreach ($categories as $category)
+                                <option value="{{$category['id']}}"
+                                @if(old('category_id') == $category['id']) selected
+                                @endif>{{$category['content']}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        {{-- TODO 本当は擬似要素で矢印つけたい。修正時間不足 --}}
+                        <div class="search-form__input--grid4">
+                            <input class="search-form__input-field2" type="date" name="created_at"
                         placehoder="年/月/日"/>
+                        </div>
                         {{-- 検索・リセットボタン --}}
                     </div>
                     <div class="search-form__wrapper">

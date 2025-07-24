@@ -37,31 +37,53 @@
 .search-form__group-container {
     display: flex;
     width: 100%;
+    height: 40px;
 }
 
 .search-form__input{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    height: 50px;
+    display: grid;
+    gap: 25px;
+    width: 80%;
+    grid-template-rows: auto;
+    grid-template-columns: 3.5fr 1fr 2.5fr 1fr;
 }
 
-.search-form__input-field,
+.search-form__input-field1,.search-form__input-field2,
 .search-form__select {
-    width: 80%;
-    margin: 5px;
-    line-height: 100%;
+    width: 100%;
+    height: 100%;
     border: 1px solid #E0DFDE;
     background-color: #f8f8f8;
     color: #8B7969;
-    font-size: 12px;
     text-align: center;
     outline: none;
 }
 
-.search-form__input-field:first-child{
-    width: 150%;
+.search-form__input-grid1{
+    grid-column: 1/1;
+    grid-row: 1/2;
 }
+
+.search-form__input-grid1{
+    grid-column: 1/1;
+    grid-row: 2/3;
+
+}
+
+.search-form__input-grid1{
+    grid-column: 1/1;
+    grid-row: 3/4;
+
+}
+
+.search-form__input-grid1{
+    grid-column: 1/1;
+    grid-row: 4/5;
+}
+
+/* .search-form__input-field:first-child{
+    width: 150%;
+} */
 
 /* 検索・リセットボタン */
 
@@ -72,9 +94,8 @@
 }
 
 .search-form__button {
-    width: 70px;
-    margin: 5px;
-    padding: 0 5px;
+    width: 50%;
+    margin-left: 25px;
     line-height: 100%;
     border: none;
     background-color: #8B7969;
@@ -83,9 +104,8 @@
 }
 
 .search-form__button--reset {
-    width: 70px;
-    margin: 5px;
-    padding: 0 5px;
+    width: 50%;
+    margin-left: 25px;
     line-height: 100%;
     border: none;
     background-color: #D9C6B5;
@@ -95,13 +115,14 @@
 
 /* セレクトフォームの矢印など調整 */
 
-.search-form__select,.search-form__input-field {
+.search-form__select,.search-form__input-field2 {
     appearance: none;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23888%22%20d%3D%22M208.5%2096.5L128%20177L47.5%2096.5z%22%2F%3E%3C%2Fsvg%3E'); /* カスタムの矢印 */
     background-repeat: no-repeat;
     background-position: right 3px center;
     background-size: 20px;
 }
+
 
 /* TODO 課題：カレンダーアイコン消して三角アイコンにしようと思ったが、タップした時にカレンダーが出なくなるのでやめ */
 /* input[type="date"]::-webkit-calendar-picker-indicator {
